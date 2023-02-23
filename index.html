@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>live</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="user-container"></div>
+        <div class="friends"></div>
+        <div class="quote-container"></div>
+        <div class="content-container">
+            <div class="pokemon-container"></div>
+            <div class="meat-text"></div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button id="load" onclick="manager.loadData()">Load User Data</button>
+        <button id="display" onclick="renderer.render(manager.data)">Display User</button>
+    </div>
+
+
+   
+    <script class="user-template" type="text/x-handlebars-template">
+        <div>
+            <img id="profile-pic" src="{{picture}}" alt=""></div>
+        <div class="user-info">{{name}}<br>{{location}} </div>
+    </div>
+    </script>
+
+    <script class="friends-template" type="text/x-handlebars-template">
+        <ol>
+            <li>Friends:</li>
+       {{#each users}}
+        <li>{{name}}</li>
+        {{/each}}
+    </ol>
+    </script>
+
+    <script class="quote-template" type="text/x-handlebars-template">
+        <p>{{quote}},</p>
+    </script>
+
+    <script class="pokemon-template" type="text/x-handlebars-template">
+        <div id="pokemon-image"><img src={{picture}} alt="pokemon"></div>
+        <div id="pokemon-text">Favorite Pokemon: {{name}}</div>
+    </script>
+
+    <script  class="meat-template" type="text/x-handlebars-template">
+        <div class="meat-text">{{meat}}</div>
+    </script>
+     
+    
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.3.js"
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="APIManager.js"></script>
+    <script src="renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
